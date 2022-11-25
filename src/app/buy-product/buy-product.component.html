@@ -1,0 +1,66 @@
+<div class="container mt-5">
+    <div class="card p-5">
+        <div class="row">
+            <div class="col-5">
+                <form #orderForm="ngForm" (ngSubmit)="placeOrder(orderForm)">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Full Name</mat-label>
+                        <input matInput required="required" [(ngModel)]="orderDetails.userFullName" name="userFullName">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Full Address</mat-label>
+                        <input matInput required="required" [(ngModel)]="orderDetails.userFullAddress"
+                            name="userFullAddress">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Mobile Number</mat-label>
+                        <input matInput required="required" type="number" [(ngModel)]="orderDetails.userContactNumber"
+                            name="userContactNumber">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Alternate Mobile Number</mat-label>
+                        <input matInput type="number" [(ngModel)]="orderDetails.userAlternateContactNumber"
+                            name="userAlternateContactNumber;">
+                    </mat-form-field>
+                    <div>
+                        <button type="submit" mat-raised-button color="primary">Place Order</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-1"></div>
+
+            <div class="col-6">
+                <table class="table">
+                    <thead class="thead">
+                        <tr>
+                            <th>Medicine Name</th>
+                            <th>Quantity</th>
+                            <th>Amount</th>
+                            <th>Total Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tbody">
+                        <tr *ngFor="let product of productDetails">
+                            <td>{{product.productName}}</td>
+                            <td>{{product.productDiscountedPrice}}</td>
+                            <td>
+                                <select #qty [ngModel]="getQtyForProduct(product.productId)" class="form-select"
+                                    (change)="onQtyChanged(qty.value,product.productId)">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </td>
+                            <td>{{getTotal(product.productId,product.productDiscountedPrice)}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

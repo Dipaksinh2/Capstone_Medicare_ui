@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { User } from '../_model/user.model';
 import { UserAuthService } from './user-auth.service';
 
 @Injectable({
@@ -12,9 +13,9 @@ export class UserService {
   constructor(
     private httpclient: HttpClient,
     private userAuthService: UserAuthService
-  ) {}
+  ) { }
 
-  public login(loginData) {
+  public login(loginData: any) {
     return this.httpclient.post(this.PATH_OF_API + '/authenticate', loginData, {
       headers: this.requestHeader,
     });
@@ -26,14 +27,13 @@ export class UserService {
     });
   }
 
-
   public forAdmin() {
     return this.httpclient.get(this.PATH_OF_API + '/forAdmin', {
       responseType: 'text',
     });
   }
 
-  public roleMatch(allowedRoles): boolean {
+  public roleMatch(allowedRoles: string | any[]): boolean {
     let isMatch = false;
     const userRoles: any = this.userAuthService.getRoles();
 
@@ -50,4 +50,14 @@ export class UserService {
       }
     }
   }
+
+  public registerUser(userData) {
+       return this.httpclient.post(this.PATH_OF_API + '/registerNewUser', userData)
+  }
+
+  public getAllUsers(){
+    return this.httpclient.get<User[]>(this.PATH_OF_API+'/getAllUsers');
+  }
+
+
 }

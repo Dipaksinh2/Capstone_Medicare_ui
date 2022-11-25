@@ -1,0 +1,48 @@
+table,tr,th,td{
+    width: 100%;
+    border: 2px solid black;
+}
+
+.containers{
+    padding: 15px;
+}
+
+table tr th{
+    background-color: rgb(61, 39, 6);
+    border-color: rgb(255, 255, 255);    
+    color: white;
+    font-size: medium;
+    font-variant: normal;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 5px;
+
+}
+
+
+.icon{
+    font-size: small;
+}
+
+.mat-column-EmailId,.mat-column-Address{
+    width: 20% !important;
+}
+
+.mat-column-FirstName,
+.mat-column-LastName,
+.mat-column-EmailId,
+.mat-column-MobileNo,
+.mat-column-Address,
+.mat-column-City,
+.mat-column-State,
+.mat-column-Role
+{
+    width: 50px;
+    border-right: 1px solid currentColor;
+    padding-right: 15px;
+    text-align: center;
+    font-size: medium;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+

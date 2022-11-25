@@ -1,28 +1,72 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Angular + JWT</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/home">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/admin"
-            *ngIf="userService.roleMatch(['Admin'])"
-            >Admin Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/user"
-            *ngIf="userService.roleMatch(['User'])"
-            >User Dashboard</a>
-          </li>
-         
-        </ul>
-        <button *ngIf="! isLoggedIn()" type="button" class="btn btn-success" routerLink="/login">Login</button>
-        <button *ngIf="isLoggedIn()" type="button" class="btn btn-danger" (click)="logout()" >Logout</button>
-      </div>
-    </div>
-  </nav>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+
+
+<mat-toolbar class="sticky-top">
+  <div class="ms-5"><a routerLink="#">
+      <img class="logo" src="../assets/Medicare Logo 1.png">
+    </a>
+  </div>
+  <div class="header mx-2">
+    <button routerLink="/">
+      <i class="fa-solid fa-house"></i>
+    </button>
+  </div>
+
+  <div class="header mx-2">
+    <button routerLink="/product">
+      <i class="fa-solid fa-capsules"></i> Medicine
+    </button>
+  </div>
+  <div class="spacer">
+
+  </div>
+  <div class="header mx-2">
+    <button *ngIf="!isLoggedIn()" routerLink="/login">
+      <i class="fa-solid fa-user-tie"></i> &nbsp; Login
+    </button>
+  </div>
+  <div class="header mx-2">
+    <button *ngIf="!isLoggedIn()" routerLink="/register">
+      <i class="fa-solid fa-user-plus"></i> &nbsp; Register
+    </button>
+  </div>
+  <div class="header mx-3">
+    <button *ngIf="isLoggedIn()" (click)="logout()" matTooltip="Logout">
+      <i class="fa-solid fa-right-from-bracket"></i>
+    </button>
+  </div>
+
+  <font style="font-size: 12px;">Date:{{date|date:'mediumDate'}}</font>
+</mat-toolbar>
+
+
+<mat-toolbar class="child-toolbar" *ngIf="isLoggedIn()">
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link nav-bar2" *ngIf="isAdmin()" routerLink="/admin">
+        <i class="fa-solid fa-user"></i> Profile Page
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link nav-bar2" *ngIf="isAdmin()" routerLink="/addNewProduct">
+        <i class="fa-solid fa-plus"></i> New Medicine
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link nav-bar2" *ngIf="isAdmin()" routerLink="/showAllProducts">
+        <i class="fa-solid fa-table-list"></i> View Medicine
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link nav-bar2" *ngIf="isAdmin()" routerLink="/userlist">
+        <i class="fa-solid fa-users"></i> User List
+      </a>
+    </li>
+  </ul>
+
+</mat-toolbar>
+<router-outlet></router-outlet>

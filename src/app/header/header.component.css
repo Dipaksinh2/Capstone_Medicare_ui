@@ -1,0 +1,65 @@
+mat-toolbar {
+   background-color: white;
+   border-bottom: 3px solid rgb(21, 43, 130);
+}
+
+.logo {
+   height: 50px;
+}
+
+.spacer {
+   flex: 2 2 auto;
+}
+
+i {
+   margin-top: 5px;
+   font-size: 20px;
+   justify-content: center;
+}
+
+.header button {
+   font-size: medium;
+   background-color: rgb(21, 43, 130);
+   color: azure;
+   font-weight: 700;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+}
+
+.header button:hover {
+   cursor: pointer;
+   color: orangered;
+   background-color: white;
+}
+
+.text {
+   padding: 10px;
+   font-size: medium;
+   font-weight: 500;
+}
+
+.header {
+   margin: 10px;
+}
+
+.child-toolbar {
+   background: linear-gradient(90deg, rgb(68, 104, 234) 0%, rgb(20, 68, 151) 100%);
+   justify-content: center;
+   font-size: medium;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.nav-bar2 {
+   font-weight: 600;
+   color: white;
+}
+
+.nav-bar2:hover {
+   color: blueviolet;
+   background-color: whitesmoke;
+}
+
+.nav-bar2 i {
+   font-size: medium;
+}

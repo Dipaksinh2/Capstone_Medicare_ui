@@ -1,0 +1,89 @@
+<div class="containers mt-5">
+    <div class="row main-page">
+        <div class="link">
+            <a routerLink="/product">
+                <i class="fa-regular fa-circle-left"></i>
+            </a>
+        </div>
+        <div class="col-6">
+            <div class="row p-2">
+                <div class="col-1 mt-5 img-list">
+                    <div class="image-list" *ngFor="let file of product.productImages; let i=index"
+                        (click)="changeIndex(i)">
+                        <img [src]="file.url" alt="No Image Found">
+                    </div>
+                </div>
+                <div class="col-11 image-conatiner">
+                    <img [src]="product.productImages[selectedProductIndex].url" class="product-zoom">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="product-info">
+                <div class="mt-4">
+                    <span class="product-name">
+                        {{product.productName}}</span>
+                </div>
+                <hr>
+                <div class="mt-2">
+                    <span class="primary">Best Price* - </span>
+                    <span class="price"><i class="fa-solid fa-indian-rupee-sign"></i>
+                        {{product.productDiscountedPrice}}
+                    </span>
+                </div>
+                <div>
+                    <span class="primary">MRP - </span>
+                    <span class="mrp"><i class="fa-solid fa-indian-rupee-sign"></i>
+                        {{product.productActualPrice}}
+                    </span><br>
+                    <p>(Inclusive of all taxes)</p>
+                </div>
+
+                <div class="mt-2">
+                    <span class="primary">Description</span>
+                    <p class="bg db_data"> {{product.productDesc}}</p>
+                </div>
+
+                <div class="mt-2">
+                    <span class="primary">Manufacturer</span>
+                    <p class="bg db_data"> {{product.productManufacturer}}</p>
+                </div>
+
+                <div class="mt-2">
+                    <span class="primary">Category </span>
+                    <p class="bg db_data">{{product.productCategory}}</p>
+                </div>
+
+                <div class="mt-2">
+                    <span class="primary">Brand </span>
+                    <p class="bg db_data">{{product.productBrand}}</p>
+                </div>
+
+                <div class="mt-4">
+                    <button mat-flat-button color="accent" (click)="buyProduct(product.productId)">Buy Now</button>
+                </div>
+                <hr>
+                <div class="mt-5 mb-5">
+                    <div class="primary mb-2">Offer Applicable</div>
+                    <div class="bg db_data p-3">Deafult Discount Already Applicable*</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="containers mt-5">
+    <div class="row main-page">
+        <div>
+            <strong>DISCLAIMER</strong>
+        </div>
+        <div>
+            The contents of this website are for informational purposes only and not intended to be a substitute for
+            professional medical advice, diagnosis, or treatment. Please seek the advice of a physician or other
+            qualified health provider with any questions you may have regarding a medical condition. Do not disregard
+            professional medical advice or delay in seeking it because of something you have read on this website.
+        </div>
+    </div>
+</div>

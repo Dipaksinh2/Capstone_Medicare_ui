@@ -1,0 +1,73 @@
+.add_button {
+    margin-right: 10px;
+}
+
+.card{
+    border-radius: 20px;
+}
+
+.image-conatiner {
+    height: 500px;
+    position: relative;
+}
+
+.product-zoom {
+    max-width: 90%;
+    max-height: 90%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+
+.btn-image {
+    position: absolute;
+    top: -1.5px;
+    right: 1.5px;
+    width: 20px;
+    height: auto;
+    text-align: center;
+    color: red;
+}
+
+.btn-image:hover {
+    cursor: pointer;
+}
+
+.img_upload{
+    padding: 16px;
+    height: 180px;
+    width: 180px;
+    object-position: center;
+    object-fit: contain;
+}
+
+
+.drop_zone {
+    height: 100px;
+    min-width: 200px;
+    display: table;
+    background-color: #eee;
+    width: 500px;
+    border: 1px dashed #aaa;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.drag_text {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.btn_here:hover {
+    background-color: cadetblue;
+    color: white;
+}
+
+.centered {
+    text-align: center;
+}

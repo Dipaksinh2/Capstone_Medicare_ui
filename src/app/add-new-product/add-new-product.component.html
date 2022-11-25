@@ -1,0 +1,80 @@
+<div class="container mt-5">
+    <div class="card p-5">
+        <div class="row">
+            <div class="col-6">
+                <form #productForm="ngForm" (ngSubmit)="addProduct(productForm)">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Medicine Name</mat-label>
+                        <input matInput [(ngModel)]="product.productName" name="productName">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Medicine Description</mat-label>
+                        <textarea matInput type="textarea" style="height: 70px;" [(ngModel)]="product.productDesc"
+                            name="productDesc"></textarea>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Medicine Actual Price</mat-label>
+                        <input matInput type="number" placeholder="Enter Actual Price"
+                            [(ngModel)]="product.productActualPrice" name="productActualPrice">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Medicine Discounted Price</mat-label>
+                        <input matInput type="number" placeholder="Enter Discounted Price"
+                            [(ngModel)]="product.productDiscountedPrice" name="productDiscountedPrice">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Manufacturer Name</mat-label>
+                        <input matInput type="text" [(ngModel)]="product.productManufacturer"
+                            name="productManufacturer">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Category</mat-label>
+                        <input matInput type="text" [(ngModel)]="product.productCategory" name="productCategory">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Brand Name</mat-label>
+                        <input matInput type="text" [(ngModel)]="product.productBrand" name="productBrand">
+                    </mat-form-field>
+
+                    <div>
+                        <button mat-flat-button class="add_button" *ngIf="isNewProduct" color="primary"
+                            type="submit">Save</button>&nbsp;
+                        <button mat-flat-button class="add_button" *ngIf="!isNewProduct" color="primary"
+                            type="submit">Update</button>&nbsp;
+                        <button mat-flat-button color="accent" type="reset">Clear</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-6">
+                <div class="drop_zone" appDrag (files)="fileDropped($event)">
+                    <div class="drag_text">
+                        <div class="centered">Drag Images Or &nbsp;<button mat-stroked-button color="primary"
+                                class="btn_here" (click)="selectFile.click()">Browse Here</button>
+                        </div>
+                    </div>
+                </div>
+                <input type="file" style="display: none;" multiple value="select" #selectFile
+                    (change)="onFileSelected($event)">
+                <div class="mt-5">
+                    <div class="row">
+                        <mat-grid-list cols="3" rowHeight="1:1">
+                            <mat-grid-tile *ngFor="let file of product.productImages; let i = index;">
+                                <div class="card">
+                                    
+                                    <mat-icon class="btn-image" (click)="removeImages(i)">cancel</mat-icon>
+                                    <img [src]="file.url" class="img_upload">
+                                </div>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

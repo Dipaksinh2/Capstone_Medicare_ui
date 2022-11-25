@@ -1,25 +1,43 @@
-<div class="container mt-5">
-    <div class="card" style="padding: 20px;">
-        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
-            <input type="text"
-            ngModel
-            name="userName"
-            id="userName"
-            placeholder="Enter your username"
-            class="form-control mb-3"
-            >
-
-            <input type="password"
-            ngModel
-            name="userPassword"
-            id="userPassword"
-            placeholder="Enter your password"
-            class="form-control mb-3"
-            >
-
-            <input type="submit"
-            value="Login"
-            class="btn btn-outline-primary form-control rounded-0">
-        </form>
+<body>
+    <div class="bootstrap-wrapper">
+        <div class="container mt-5">
+            <div class="row p-2">
+                <div class="col-6 mt-20 center">
+                    <h1> Login</h1>
+                    <h4>Sign in to access your orders, special offers, health tips and more!</h4>
+                    <div class="bootstrap-grid mt-5">
+                        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+                            <label class="me-2">
+                                <mat-icon>person</mat-icon>
+                            </label>
+                            <mat-form-field appearance="outline">
+                                <mat-label>E-mail</mat-label>
+                                <input matInput type="text" required="required" ngModel name="userName" id="userName">
+                            </mat-form-field><br>
+                            <label class="me-2">
+                                <mat-icon>lock</mat-icon>
+                            </label>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Password</mat-label>
+                                <input matInput type="password" required="required" ngModel name="userPassword"
+                                    id="userPassword">
+                            </mat-form-field>
+                            <div>
+                                <button type="submit" class="login" mat-raised-button color="primary">Login</button>
+                                <button type="reset" class="login" mat-raised-button color="accent">Reset</button>
+                            </div>
+                        </form>
+                        <div class="text mb-5">
+                            New to Medicare <a routerLink="/register">Register now!</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="container">
+                        <img src="../assets/Reg2.png">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+</body>

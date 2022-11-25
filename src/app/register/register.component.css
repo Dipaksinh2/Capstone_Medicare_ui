@@ -1,0 +1,42 @@
+.container {
+    background-color: white;
+    border-radius: 15px;
+}
+
+.col {
+    margin-left: 15px;
+}
+
+label {
+    font-size: medium;
+    font-weight: 500;
+    color: rgb(30, 95, 193);
+}
+
+h1,
+h4 {
+    color: rgb(33, 68, 150);
+    font-weight: 500;
+}
+
+.text {
+    font-size: larger;
+    font-weight: 500;
+    color: blueviolet;
+}
+
+a {
+    text-decoration: none;
+}
+
+.text a:hover {
+    color: brown;
+}
+
+.register{
+    width: 30%;
+}
+
+mat-form-field{
+    width: 100%;
+}

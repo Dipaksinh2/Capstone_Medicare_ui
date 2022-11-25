@@ -1,0 +1,5 @@
+<mat-grid-list cols="3" rowHeight="2:1">
+    <mat-grid-tile *ngFor="let fileHandle of data.images">
+        <img class="img_show" [src]="fileHandle.url" alt="No image found">
+    </mat-grid-tile>
+</mat-grid-list>

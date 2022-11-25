@@ -1,5 +1,97 @@
-<div class="container mt-5">
-   <div class="card text-center" style="padding: 20px;">
-    <h1>This is Home Page</h1>
+<body>
+   <div class="row w-100">
+      
+      <!-- <div class="col-2">
+         <div class="container-one">
+            <div class="slider">
+               <span class="heading">Filter</span>
+            </div>
+            <div class="mt-4">
+               <span class="heading">Brand</span>
+            </div>
+            <div class="ms-3"> -->
+               <!-- <select class="" size="5" [(ngModel)]="sortByBrand">
+                  <option *ngFor="let p of productDetails" value="productBrand">{{p.productBrand}}
+                  </option>
+               </select> -->
+
+               <!-- <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" [(ngModel)]="BrandName">
+               <label class="form-check-label" for="flexRadioDefault1">
+                  {{p.productBrand}}
+               </label> -->
+            <!-- </div>
+            <div>
+
+            </div>
+         </div>
+      </div> -->
+
+
+      <div class="w-100">
+         <div class="container-two">
+            <div class="row">
+               <div class="img-container">
+                  <img src="../assets/Header-banner-1.jpg">
+               </div>
+               <div class="row sort-by">
+                  <div class="col-9" style="display: flex;">
+                     <div class="search-bar">
+                        <form>
+                           <input type="text" class="search-input" name="search" placeholder="Search with medicine name"
+                              [(ngModel)]="ProductName">
+                           <i class="fa-solid fa-magnifying-glass"></i>
+                        </form>
+                     </div>
+                  </div>
+
+                  <div class="col-3 sorting-div">
+                     <span class="sort">Sort By:</span>
+                     <div class="filter">
+                        <select [(ngModel)]="sortByParam">
+                           <option selected>Select to sort</option>
+                           <option value="productName">Medicine Name</option>
+                           <option value="productDiscountedPrice">Medicine Price</option>
+                        </select>
+
+                        <button (click)="setDirection()" type="button" class="sort-btn">
+                           <i *ngIf="sortDirection==='asc'" class="fa-solid fa-circle-down"></i>
+                           <i *ngIf="sortDirection==='desc'" class="fa-solid fa-circle-up"></i>
+                        </button>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="card p-2" style="width: 250px;" *ngFor="let p of productDetails | 
+               paginate: { itemsPerPage: 15, currentPage: page, totalItems:totalLength }|
+               search:ProductName:'productName'|sort:[sortByParam,sortDirection]">
+                  <div class="space">
+                     <div class="image-container">
+                        <img class="home-page-grid-image" [src]="p.productImages[0].url" [title]="p.productName"
+                           alt="No Image Found">
+                     </div>
+
+                     <div class="mt-5 div">
+                        <p style="font-weight: 700;">{{p.productName}}</p>
+                     </div>
+
+                     <div class="mt-3">
+                        <div>MRP &nbsp;
+                           <font style="text-decoration: line-through ;">₹{{p.productActualPrice}}</font>
+                        </div>
+                        <span style="font-weight: 700; color: rgb(21, 137, 0);">Best Price &nbsp; ₹{{p.productDiscountedPrice}}</span>
+                     </div>
+
+                     <div class="mt-3 mb-2">
+                        <span><button class="view" (click)="showProduct(p.productId)">
+                              View Details</button></span>
+                     </div>
+                  </div>
+               </div>
+               <div class="pagination">
+                  <pagination-controls class="my-pagination" (pageChange)="page = $event"></pagination-controls>
+               </div>
+            </div>
+         </div>
+      </div>
    </div>
-</div>
+</body>

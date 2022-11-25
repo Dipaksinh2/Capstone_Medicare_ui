@@ -1,0 +1,93 @@
+<body>
+  <div class="bootstrap-wrapper">
+    <div class="container mt-5">
+      <div class="row g-3 p-5">
+
+        <div class="col-6 p-2">
+          <h1>Register now</h1>
+          <h4>Access your orders,offers,health tips and more!</h4>
+          <div class="bootstrap-grid mt-5">
+            <form #registerForm="ngForm" (ngSubmit)="registerUser(registerForm)">
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label>First Name</mat-label>
+                    <input matInput type="text" #userFirstName (ngModel)="userFirstName" name="userFirstName"
+                      id="userFirstName" required="required">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput type="text" #userLastName (ngModel)="userLastName" name="userLastName"
+                      id="userLastName" required="required">
+                  </mat-form-field>
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Email-Id</mat-label>
+                    <input matInput type="email" #userEmail (ngModel)="userEmail" name="userEmail" id="userEmail"
+                      required="required">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" #userPassword (ngModel)="userPassword" name="userPassword"
+                      id="userPassword" required="required">
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Mobile Number</mat-label>
+                    <input matInput type="text" #userMobile (ngModel)="userMobile" name="userMobile" id="userMobile" required="required">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Address</mat-label>
+                    <input matInput type="text" #userAddress (ngModel)="userAddress" name="userAddress"
+                      id="userAddress">
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label>City</mat-label>
+                    <input matInput type="text" #userCity (ngModel)="userCity" name="userCity" id="userCity" required="required">
+                  </mat-form-field>
+                </div>
+
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label>State</mat-label>
+                    <input type="text" matInput #userState (ngModel)="userState" name="userState" id="userState" required="required">
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <div class="row" style="justify-content: center;">
+                <button type="submit" class="register" mat-raised-button color="primary">Register</button>
+              </div>
+            </form>
+            <div class="row mt-5 center"><span class="text">
+                Already Customer <a routerLink="/login">Login now!</a></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <img src="./assets/sign-in.png">
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

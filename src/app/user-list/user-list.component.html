@@ -1,0 +1,61 @@
+<div class="containers mt-5">
+    <table mat-table [dataSource]="userDetails" class="mat-elevation-z8">
+
+        <!-- First Name-->
+        <ng-container matColumnDef="FirstName">
+            <th mat-header-cell *matHeaderCellDef> First Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.userFirstName}} </td>
+        </ng-container>
+
+        <!-- Last Name -->
+        <ng-container matColumnDef="LastName">
+            <th mat-header-cell *matHeaderCellDef> Last Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.userLastName}} </td>
+        </ng-container>
+
+        <!-- Email -id -->
+        <ng-container matColumnDef="EmailId">
+            <th mat-header-cell *matHeaderCellDef> E-mail Id</th>
+            <td mat-cell *matCellDef="let element"> {{element.userEmail}} </td>
+        </ng-container>
+
+        <!-- Mobile -->
+        <ng-container matColumnDef="MobileNo">
+            <th mat-header-cell *matHeaderCellDef> Mobile No. </th>
+            <td mat-cell *matCellDef="let element">
+                {{element.userMobile}}
+            </td>
+        </ng-container>
+
+        <!-- Address -->
+        <ng-container matColumnDef="Address">
+            <th mat-header-cell *matHeaderCellDef> Address </th>
+            <td mat-cell *matCellDef="let element">
+                {{element.userAddress}}
+            </td>
+        </ng-container>
+
+        <!-- City -->
+        <ng-container matColumnDef="City">
+            <th mat-header-cell *matHeaderCellDef>City</th>
+            <td mat-cell *matCellDef="let element">{{element.userCity}} </td>
+        </ng-container>
+
+        <!-- State -->
+        <ng-container matColumnDef="State">
+            <th mat-header-cell *matHeaderCellDef>State</th>
+            <td mat-cell *matCellDef="let element">{{element.userState}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Role">
+            <th mat-header-cell *matHeaderCellDef>Role</th>
+            <td mat-cell *matCellDef="let element">{{element.role[0].roleName}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator #paginator [pageSize]="4" [pageSizeOptions]="[2,5,10, 50, 100]">
+    </mat-paginator>
+</div>
